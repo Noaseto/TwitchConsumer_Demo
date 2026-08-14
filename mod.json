@@ -1,7 +1,7 @@
 {
-  "id": "com.example.my_mod",
-  "name": "My Mod",
+  "id": "io.github.noaseto.twitchdemo",
+  "name": "Twitch service demo",
   "version": "1.0.0",
-  "author": "You",
-  "description": "An example Dusklight mod"
+  "author": "Noaseto",
+  "description": "Demo for the Twitch loader service"
 }

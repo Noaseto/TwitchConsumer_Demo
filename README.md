@@ -1,64 +1,23 @@
-# Dusklight Mod Template
+A mod by human for human, I do not like the usage of generative AIs. Also, we stand for Trans people right :3
 
-A standalone template for [Dusklight](https://github.com/TwilitRealm/dusklight) mods.
+# Twitch consumer demo
 
-See the [Dusklight modding documentation](https://github.com/TwilitRealm/dusklight/blob/main/docs/modding.md)
-for the full mod API: services, hooking game functions, asset overlays, and more.
+This mod is to show what can be done via the (Twitch loader)[https://github.com/Noaseto/TwitchLoader] service
 
-## Quick start
+Its goal is to stay the minimal code needed to interact with it so people can plug this service easily
 
-1. Click "Use this template" to create a new repository for your mod.
-2. Edit `mod.json`: set your mod's `id` (reverse-DNS style, e.g. `com.example.my_mod`),
-   `name`, `author`, and `description`.
-3. Rename the target in `CMakeLists.txt` (`add_mod(my_mod ...)`) (this names the `.dusk` file).
-4. Write your mod in `src/mod.cpp`.
-5. Build locally:
-   ```sh
-   cmake -B build
-   cmake --build build
-   ```
+# What can be done
 
-The result is `build/mods/<name>.dusk`. Copy it into the game's mods folder to try it:
+After enabling both this mod and the Twitch loader, load a savefile and go to a place you like.
 
-- Windows: `%APPDATA%\TwilitRealm\Dusklight\mods`
-- Linux: `~/.local/share/TwilitRealm/Dusklight/mods`
-- macOS: `~/Library/Application Support/TwilitRealm/Dusklight/mods`
+| What to do             | What will happen              |
+|------------------------|-------------------------------|
+| Type a message in chat | it will spawn a rupee         |
+| Get a follower         | it will spawn a heart         |
+| Get a subscriber       | it will spawn a blue rupee    |
+| Type "rupee"           | it will spawn 20 green rupees |
 
-During development, rebuild, copy and click **Reload** in the in-game mod manager to pick up changes.
+I do not stream regularly so I do not have channel points nor subs, and can't verify that it works (I think I could use
+twitch CLI, but I didn't bother yet). It should be as easy as that, enjoy :>
 
-> [!IMPORTANT]
-> A mod built locally will only be valid for your own platform, and shouldn't be distributed.
-> The repository will build a [cross-platform bundle](#github-actions) for distribution. See below.
-
-## Updating to a new Dusklight version
-
-Change the `DUSKLIGHT_VERSION` line in `CMakeLists.txt` to the new release tag (or commit hash) and reconfigure. The
-pinned version is fetched into `dusklight/` automatically. Use the `dusklight/` checkout to browse game code, headers
-and mod services.
-
-> [!IMPORTANT]
-> The Dusklight checkout is for **reference only**. Mods use
-> [services](https://github.com/TwilitRealm/dusklight/blob/main/docs/modding.md#built-in-services) and
-> [hooks](https://github.com/TwilitRealm/dusklight/blob/main/docs/modding.md#hooking-game-functions) to interact with
-> game code.
-
-## GitHub Actions
-
-The included GitHub Actions workflow builds the mod for the following platforms:
-- Windows (AMD64 & ARM64)
-- macOS (Apple Silicon & Intel)
-- iOS (Apple Silicon)
-- Linux (x86_64 & aarch64)
-- Android (aarch64)
-
-It then merges the per-platform builds into a single `.dusk` supporting all platforms. (Artifact `mod-combined`) 
-
-Pushing a tag to the repository creates a GitHub release with the combined bundle.
-
-## For Dusklight developers
-
-Point the build at an existing checkout instead of fetching one:
-
-```sh
-cmake -B build -DDUSKLIGHT_DIR=~/path/to/dusklight
-```
+PS: I have no clue why but in some areas the createItem command crashes the game, it works in ordon village though.
