@@ -24,4 +24,6 @@ PS: I have no clue why but in some areas the createItem command crashes the game
 
 # Where to find it
 
-In the mod.cpp, the mod_update will call the service to retrieve all events since last frame and then call the handle_twitch_event method which is simply a switch case based on the TwitchEventType enum.
+In the mod.cpp, the mod_update will call the service to retrieve all events since last frame and then call the
+handle_twitch_event method which is simply a switch case based on the TwitchEventType enum. For more info, look
+at the TwitchLoader sequence diagram.
